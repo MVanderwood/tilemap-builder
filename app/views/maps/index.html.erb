@@ -1,1 +1,22 @@
-<h1>Yo</h1>
+<div class="container">
+    <h1>SS-Tilemap Builder Tool</h1>
+    <div class="col-md-3">
+        <div id="insert-tileset"></div>
+        <div id="tile-settings">
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div id="tilemap-settings">
+            <label for="tilemap-width">Width</label>
+            <input id="tilemapWidth" type="number" min="5" name="tilemap-width" value="30">
+
+            <label for="tilemap-height">Height</label>
+            <input id="tilemapHeight" type="number" min="5" name="tilemap-height" value="20">
+            <input type="button" value="Refresh" onclick="refreshTilemap()">
+        </div>
+        <div class="tilemap">
+          <table><div id="insert-tilemap"></div></table>
+        </div>
+    </div>
+</div>
