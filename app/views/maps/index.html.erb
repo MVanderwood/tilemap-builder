@@ -1,12 +1,24 @@
 <div class="container">
     <h1>SS-Tilemap Builder Tool</h1>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div id="insert-tileset"></div>
         <div id="tile-settings">
 
         </div>
+        <%= form_tag '/upload', action: :upload, multipart: true do |m| %>
+            <%= file_field_tag 'tileset' %>
+            <div>
+                <%= label_tag 'rows' %>
+                <%= number_field_tag 'rows', min: 1 %>
+            </div>
+            <div>
+                <%= label_tag 'columns' %>
+                <%= number_field_tag 'columns', min: 1 %>
+            </div>
+            <%= submit_tag 'Upload' %>
+        <% end %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <div id="tilemap-settings">
             <label for="tilemap-width">Width</label>
             <input id="tilemapWidth" type="number" min="5" name="tilemap-width" value="30">
@@ -18,5 +30,7 @@
         <div class="tilemap">
           <table><div id="insert-tilemap"></div></table>
         </div>
+        <button>Download JSON</button>
+        <button>Download XML</button>
     </div>
 </div>

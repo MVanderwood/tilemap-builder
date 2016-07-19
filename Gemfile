@@ -5,6 +5,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+gem 'rmagick'
+gem 'dotenv'
 
 gem 'spring', group: :development
 

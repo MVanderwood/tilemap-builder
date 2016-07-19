@@ -20,7 +20,7 @@ body {
   color: white;
 }
 
-input {
+input, button {
   color: black;
 }
 
@@ -32,7 +32,7 @@ input {
 
 .tilemap {
   overflow: scroll;
-  height: 600px;
+  height: 550px;
   width: 800px;
   border: 4px solid grey;
 }
