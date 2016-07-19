@@ -9,11 +9,11 @@
             <%= file_field_tag 'tileset' %>
             <div>
                 <%= label_tag 'rows' %>
-                <%= number_field_tag 'rows', min: 1 %>
+                <%= number_field_tag 'rows', nil, min: 1 %>
             </div>
             <div>
                 <%= label_tag 'columns' %>
-                <%= number_field_tag 'columns', min: 1 %>
+                <%= number_field_tag 'columns', nil, min: 1 %>
             </div>
             <%= submit_tag 'Upload' %>
         <% end %>
