@@ -5,17 +5,12 @@ class MapsController < ApplicationController
   end
 
   def upload_tileset
-    tileset  = Tileset.create(
-      image: params[:image],
+    @tileset = Tileset.new(
+      image: params[:tileset],
       rows: params[:rows],
       columns: params[:columns]
     )
-
-    # @tiles = Tileset.new(
-    #   tileset: params[:tileset],
-    #   rows: params[:rows].to_i,
-    #   columns: params[:columns].to_i
-    # ).tiles
+    @tileset.save
     render 'index.html.erb'
   end
 

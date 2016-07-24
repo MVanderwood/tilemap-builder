@@ -8,7 +8,8 @@ gem 'sass-rails', '>= 3.2'
 gem 'rmagick'
 gem 'dotenv'
 gem 'pg'
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick'
 
 gem 'spring', group: :development
 
