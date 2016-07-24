@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %> alert-dismissable">
+    <%= message.html_safe %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;<span class="sr-only">Close</span></button>
+  </div>
+<% end %>
 
 <%= yield %>
 

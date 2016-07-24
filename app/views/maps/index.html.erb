@@ -5,7 +5,6 @@
             <div id="tile-settings">
 
             </div>
-            <%= image_tag @tileset.image_url(:image_0) %>
         <% end %>
         <%= form_tag '/upload', action: :upload, multipart: true do |m| %>
             <%= file_field_tag 'tileset' %>

@@ -12,15 +12,15 @@ class ImageUploader < CarrierWave::Uploader::Base
     width = 640 / columns
     height = 1136 / rows
     manipulate! do |img|
-      attempts = 0
-      begin
-        img.crop(Magick::NorthWestGravity, x*width, y*height, width, height, true)
-      rescue
-        attempts += 1
-        while attempts < 5
-          retry
-        end
-      end #rescue block
+      chop!(img, x, y, width, height)
     end
-  end #method call
+  end
+
+  private def chop!(img, x, y, width, height)
+    attempts ||= 0
+    img.crop(Magick::NorthWestGravity, x*width, y*height, width, height, true)
+  rescue
+    attempts += 1
+    retry unless attempts > 5
+  end
 end

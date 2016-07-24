@@ -9,7 +9,6 @@ gem 'rmagick'
 gem 'dotenv'
 gem 'pg'
 gem 'carrierwave', '~> 0.11.2'
-gem 'mini_magick'
 
 gem 'spring', group: :development
 
