@@ -1,0 +1,18 @@
+<div id="tileset-insert">
+    <table>
+        <% index = 0 %>
+        <% while index < @tileset.size %>
+            <tr>
+                <td class="tile">
+                    <%= image_tag @tileset.image_url("image_#{index}") %>
+                </td>
+                <td class="tile">
+                    <%= image_tag @tileset.image_url("image_#{index + 1}") if @tileset.image_url("image_#{index + 1}") %>
+                </td>
+                <td class="tile">
+                    <%= image_tag @tileset.image_url("image_#{index + 2}") if @tileset.image_url("image_#{index + 1}") %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
