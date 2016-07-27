@@ -1,6 +1,6 @@
 class MapsController < ApplicationController
   before_action :clean_cache
-  
+
   def index
   end
 

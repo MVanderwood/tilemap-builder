@@ -1,3 +1,5 @@
+require_dependency "lib/assets/path_util"
+
 class Tileset
   include Magick
   attr_reader :tiles
@@ -8,11 +10,10 @@ class Tileset
       options[:rows].to_i,
       options[:columns].to_i
     )
-
   end
 
   def self.cleanse!
-    FileUtils.rm_rf(Dir.glob('app/assets/images/cache/*'))
+    FileUtils.rm_rf(Dir.glob(PathUtil.public_path("uploads", "cache", "*")))
   end
 
   private
