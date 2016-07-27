@@ -3,7 +3,9 @@
     <div class="col-md-4">
         <div id="insert-tileset"></div>
         <div id="tile-settings">
-
+        <% if @tiles %>
+            <%= image_tag "cache/0-0" %>
+        <% end %>
         </div>
         <%= form_tag '/upload', action: :upload, multipart: true do |m| %>
             <%= file_field_tag 'tileset' %>
