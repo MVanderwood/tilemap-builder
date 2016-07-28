@@ -1,4 +1,4 @@
-require_dependency "libs/path_util"
+require_dependency "lib/path_util"
 
 class Tile
   attr_reader :x, :y, :path
