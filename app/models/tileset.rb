@@ -1,4 +1,4 @@
-require_dependency "lib/assets/path_util"
+require_dependency "lib/path_util"
 
 class Tileset
   include Magick
