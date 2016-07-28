@@ -13,7 +13,7 @@ class Tileset
   end
 
   def self.cleanse!
-    FileUtils.rm_rf(Dir.glob(PathUtil.public_path("uploads", "cache", "*")))
+    FileUtils.rm_rf(Dir.glob(PathUtil.public_path("images", "cache", "*")))
   end
 
   private
