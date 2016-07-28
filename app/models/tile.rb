@@ -10,6 +10,6 @@ class Tile
 
   def relative_path
     array = @path.to_s.split("/")
-    array[array.index("images")..(array.size - 1)].join("/")
+    array[array.index("cache")..(array.size - 1)].join("/")
   end
 end

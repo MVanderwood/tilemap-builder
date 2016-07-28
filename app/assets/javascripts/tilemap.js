@@ -6,7 +6,7 @@ function refreshTilemap() {
     tilemap.insert = document.getElementById('insert-tilemap');
 
     var tableRow = '<tr>';
-    for (var x = 0; x < tilemap.width; x++) { tableRow += '<td class="tile"></td>'; }
+    for (var x = 0; x < tilemap.width; x++) { tableRow += '<td class="tilemap-tile"></td>'; }
     tableRow += '</tr>';
 
     var table = '<table>';
