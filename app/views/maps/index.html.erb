@@ -7,11 +7,11 @@
                 <div class="tileset"><table><tbody>
                     <% @tiles.each_with_index do |tile, index| %>
                         <% if index % 3 == 0 %>
-                            <tr><td><%= image_tag tile.relative_path, class: "tileset-tile" %></td>
+                            <tr><td><%= image_tag tile.relative_path, class: "tileset-tile", id: "tileset-tile-#{index}", onclick: "window.selectTile(this)" %></td>
                         <% elsif index % 3 == 1 %>
-                            <td><%= image_tag tile.relative_path, class: "tileset-tile" %></td>
+                            <td><%= image_tag tile.relative_path, class: "tileset-tile", id: "tileset-tile-#{index}", onclick: "window.selectTile(this)" %></td>
                         <% else %>
-                            <td><%= image_tag tile.relative_path, class: "tileset-tile" %></td></tr>
+                            <td><%= image_tag tile.relative_path, class: "tileset-tile", id: "tileset-tile-#{index}", onclick: "window.selectTile(this)" %></td></tr>
                         <% end %>
                     <% end %>
                 </tbody></table></div>
