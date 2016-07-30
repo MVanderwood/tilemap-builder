@@ -7,7 +7,7 @@
         tilemap.insert = document.getElementById('insert-tilemap');
 
         var tableRow = '<tr>';
-        for (var x = 0; x < tilemap.width; x++) { tableRow += '<td class="tilemap-tile" onmousedown="window.paintTile(this)"></td>'; }
+        for (var x = 0; x < tilemap.width; x++) { tableRow += '<td class="tilemap-tile" onmouseover="window.paintTile(this)"></td>'; }
         tableRow += '</tr>';
 
         var table = '<table>';
@@ -18,7 +18,7 @@
     }
 
     function paintTile(element) {
-        if (window.selectedTile) {
+        if (window.mouseDown && window.selectedTile) {
             element.innerHTML = '<img src="' + window.selectedTile.image + '" class="tilemap-tile"/>';
         }
     }

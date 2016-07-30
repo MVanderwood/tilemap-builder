@@ -39,8 +39,9 @@
             <input id="tilemapHeight" type="number" min="5" name="tilemap-height" value="20">
             <input type="button" value="Refresh" onclick="window.refreshTilemap()">
         </div>
-        <div class="tilemap">
-          <table><div id="insert-tilemap"></div></table>
+        <div id="tilemap">
+            <table><div id="insert-tilemap"></div></table>
+            <%= javascript_tag "window.setTilemapMouseEvents();" %>
         </div>
         <button>Download JSON</button>
         <button>Download XML</button>
