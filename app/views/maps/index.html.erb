@@ -1,33 +1,57 @@
 <div class="container">
     <h1>SS-Tilemap Builder Tool</h1>
     <div class="col-md-4">
-        <div id="insert-tileset"></div>
-        <div id="tile-settings">
-            <% if @tiles %>
-                <div class="tileset"><table><tbody>
-                    <% @tiles.each_with_index do |tile, index| %>
-                        <% if index % 3 == 0 %>
-                            <tr><td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.selectTile(this)" %></td>
-                        <% elsif index % 3 == 1 %>
-                            <td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.selectTile(this)" %></td>
-                        <% else %>
-                            <td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.selectTile(this)" %></td></tr>
-                        <% end %>
+        <% if @tiles %>
+            <div class="tileset"><table><tbody>
+                <% @tiles.each_with_index do |tile, index| %>
+                    <% if index % 3 == 0 %>
+                        <tr><td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.pickTile(this)" %></td>
+                    <% elsif index % 3 == 1 %>
+                        <td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.pickTile(this)" %></td>
+                    <% else %>
+                        <td><%= image_tag tile.relative_path, class: "tileset-tile", onclick: "window.pickTile(this)" %></td></tr>
                     <% end %>
-                </tbody></table></div>
+                <% end %>
+            </tbody></table></div>
+            <hr>
+            <div>
+                <form id="tile-options">
+                    <div>
+                        <label for="key">Tile-key</label>
+                        <input class="tile-options-input" id="form-key" type="text" name="key">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <input class="tile-options-input" id="form-description" type="text" name="description">
+                    </div>
+                    <div>
+                        <label for="passable">Passable</label>
+                        <input class="tile-options-input" id="form-passable" type="checkbox" name="passable">
+                    </div>
+                    <div>
+                        <label for="one-way">One-way</label>
+                        <input class="tile-options-input" id="form-one-way" type="checkbox" name="one-way">
+                    </div>
+                    <div>
+                        <label for="damaging">Damaging</label>
+                        <input class="tile-options-input" id="form-damaging" type="checkbox" name="damaging">
+                    </div>
+                    <%= javascript_tag "window.setFormBindings();" %>
+                </form>
+            </div>
+        <% else %>
+            <%= form_tag '/upload', action: :upload, multipart: true do |m| %>
+                <%= file_field_tag 'tileset' %>
+                <div>
+                    <%= label_tag 'rows' %>
+                    <%= number_field_tag 'rows', nil, min: 1 %>
+                </div>
+                <div>
+                    <%= label_tag 'columns' %>
+                    <%= number_field_tag 'columns', nil, min: 1 %>
+                </div>
+                <%= submit_tag 'Upload' %>
             <% end %>
-        </div>
-        <%= form_tag '/upload', action: :upload, multipart: true do |m| %>
-            <%= file_field_tag 'tileset' %>
-            <div>
-                <%= label_tag 'rows' %>
-                <%= number_field_tag 'rows', nil, min: 1 %>
-            </div>
-            <div>
-                <%= label_tag 'columns' %>
-                <%= number_field_tag 'columns', nil, min: 1 %>
-            </div>
-            <%= submit_tag 'Upload' %>
         <% end %>
     </div>
     <div class="col-md-8">
